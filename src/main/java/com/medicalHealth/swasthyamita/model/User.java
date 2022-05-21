@@ -1,5 +1,7 @@
 package com.medicalHealth.swasthyamita.model;
 
+import java.util.List;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -14,21 +16,35 @@ public class User {
 	private long id;
 	private String mobile;
 	private String districtid;
-	private String email;
+	private String email; 
 	private String user_type;
 	private String dob;
 	private String gender;
 	private String name;
-	private String password;
+	private String password; 
 	private String pin;
 	private String address;
+	private String bloodgroup;
+	private String bodyweight;
+	private boolean smoking;
+	private boolean alcohol;
+	private boolean tobacco;
+	private String otherBadHabits;
+	private String chronicDiseases;
+	private String previousPrescriptions;
+	private String previousPIreports;
+	private String idProof;
 
 	public User() {
 
 	}
 
-	public User(String mobile, String districtid, String email, String user_type, String dob, String gender,
-			String name, String password, String pin, String address) {
+	public User(long id, String mobile, String districtid, String email, String user_type, String dob, String gender,
+			String name, String password, String pin, String address, String bloodgroup, String bodyweight,
+			boolean smoking, boolean alcohol, boolean tobacco, String otherBadHabits, String chronicDiseases,
+			String previousPrescriptions, String previousPIreports, String idProof) {
+		super();
+		this.id = id;
 		this.mobile = mobile;
 		this.districtid = districtid;
 		this.email = email;
@@ -39,6 +55,16 @@ public class User {
 		this.password = password;
 		this.pin = pin;
 		this.address = address;
+		this.bloodgroup = bloodgroup;
+		this.bodyweight = bodyweight;
+		this.smoking = smoking;
+		this.alcohol = alcohol;
+		this.tobacco = tobacco;
+		this.otherBadHabits = otherBadHabits;
+		this.chronicDiseases = chronicDiseases;
+		this.previousPrescriptions = previousPrescriptions;
+		this.previousPIreports = previousPIreports;
+		this.idProof = idProof;
 	}
 
 	@Id
@@ -140,14 +166,98 @@ public class User {
 	public void setAddress(String address) {
 		this.address = address;
 	}
+	
+	@Column(name = "bloodgroup", nullable = false)
+	public String getBloodgroup() {
+		return bloodgroup;
+	}
+
+	public void setBloodgroup(String bloodgroup) {
+		this.bloodgroup = bloodgroup;
+	}
+
+	@Column(name = "bodyweight", nullable = false)
+	public String getBodyweight() {
+		return bodyweight;
+	}
+
+	public void setBodyweight(String bodyweight) {
+		this.bodyweight = bodyweight;
+	}
+
+	@Column(name = "smoking", nullable = false)
+	public boolean isSmoking() {
+		return smoking;
+	}
+
+	public void setSmoking(boolean smoking) {
+		this.smoking = smoking;
+	}
+
+	@Column(name = "tobacco", nullable = false)
+	public boolean isTobacco() {
+		return tobacco;
+	}
+
+	public void setTobacco(boolean tobacco) {
+		this.tobacco = tobacco;
+	}
+
+	@Column(name = "otherBadHabits", nullable = false)
+	public String getOtherBadHabits() {
+		return otherBadHabits;
+	}
+
+	public void setOtherBadHabits(String otherBadHabits) {
+		this.otherBadHabits = otherBadHabits;
+	}
+
+	@Column(name = "chronicDiseases", nullable = false)
+	public String getChronicDiseases() {
+		return chronicDiseases;
+	}
+
+	public void setChronicDiseases(String chronicDiseases) {
+		this.chronicDiseases = chronicDiseases;
+	}
+
+	@Column(name = "previousPrescriptions", nullable = false)
+	public String getPreviousPrescriptions() {
+		return previousPrescriptions;
+	}
+
+	public void setPreviousPrescriptions(String previousPrescriptions) {
+		this.previousPrescriptions = previousPrescriptions;
+	}
+
+	@Column(name = "previousPIreports", nullable = false)
+	public String getPreviousPIreports() {
+		return previousPIreports;
+	}
+
+	public void setPreviousPIreports(String previousPIreports) {
+		this.previousPIreports = previousPIreports;
+	}
+
+	@Column(name = "idProof", nullable = false)
+	public String getIdProof() {
+		return idProof;
+	}
+
+	public void setIdProof(String idProof) {
+		this.idProof = idProof;
+	}
 
 	
-
 	@Override
 	public String toString() {
 		return "User [id=" + id + ", mobile=" + mobile + ", districtid=" + districtid + ", email=" + email
-				+ "user_type=" + user_type + ", dob=" + dob + ", gender=" + gender + ", name=" + name + ", password="
-				+ password + ", pin="+ pin +", address="+ address +"]";
+				+ ", user_type=" + user_type + ", dob=" + dob + ", gender=" + gender + ", name=" + name + ", password="
+				+ password + ", pin=" + pin + ", address=" + address + ", bloodgroup=" + bloodgroup + ", bodyweight="
+				+ bodyweight + ", smoking=" + smoking + ", alcohol=" + alcohol + ", tobacco=" + tobacco
+				+ ", otherBadHabits=" + otherBadHabits + ", chronicDiseases=" + chronicDiseases
+				+ ", previousPrescriptions=" + previousPrescriptions + ", previousPIreports=" + previousPIreports
+				+ ", idProof=" + idProof + "]";
 	}
 
 }
