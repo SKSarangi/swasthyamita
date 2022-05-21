@@ -35,6 +35,7 @@ public class User {
 	private String previousPIreports;
 	private String idProof;
 
+	
 	public User() {
 
 	}
