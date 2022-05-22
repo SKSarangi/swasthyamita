@@ -7,7 +7,9 @@ import javax.servlet.http.HttpServletRequest;
 import org.apache.groovy.util.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
+import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -50,11 +52,16 @@ public class UserController {
 
 	}
 	
-	@PostMapping("/register")
-	public User createUser(@RequestBody User user) {
-		System.out.println(user);
+//	@PostMapping("/register")
+//	public User createUser(@RequestBody User user) {
+//		System.out.println(user);
+//		return userRepository.save(user);
+//	}
+	
+	@PostMapping(value = "/register", consumes = {MediaType.MULTIPART_FORM_DATA_VALUE})
+    public User createUser(@ModelAttribute User user) {
 		return userRepository.save(user);
-	}
+    }
 
 	@PostMapping("/getByEmail")
 	public ResponseEntity<User> getEmployeeByEmailId(@RequestBody User user) {

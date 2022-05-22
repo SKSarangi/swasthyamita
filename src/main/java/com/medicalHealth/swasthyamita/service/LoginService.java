@@ -11,8 +11,6 @@
 //import org.springframework.beans.factory.annotation.Autowired;
 //import org.springframework.stereotype.Service;
 //
-//import com.apmosys.mahindraleasingsystemcalculator.models.PortalUser;
-//import com.apmosys.mahindraleasingsystemcalculator.services.DBconnection;
 //import com.medicalHealth.swasthyamita.Codec;
 //import com.medicalHealth.swasthyamita.model.User;
 //import com.medicalHealth.swasthyamita.repository.UserLoginRepository;
@@ -85,9 +83,9 @@
 //		return serviceResponse;
 //	}
 //
-//	public ServiceResponse checkLogin(PortalUser user,String remoteAddr)  {
+//	public ServiceResponse checkLogin(User user,String remoteAddr)  {
 //
-//		PortalUser portalUser=null;
+//		User portalUser=null;
 //		int active = 0;
 //		ServiceResponse serviceResponse=new ServiceResponse();
 //		String qry1="SELECT is_active FROM role_table WHERE role_id=?";
@@ -177,7 +175,7 @@
 //
 //					serviceResponse.setServiceResponse("");
 //					serviceResponse.setServiceStatus(ServiceResponse.STATUS_FAIL);
-//					logger.info("------STATUS_FAIL--------");
+////					logger.info("------STATUS_FAIL--------");
 //					System.out.println("RUAMBOT USER:----------->Not Exist");	
 //					return serviceResponse;
 //
@@ -186,8 +184,6 @@
 //				}
 //				remoteAddr="";
 //				portalUser.setIP_address(remoteAddr);
-//
-//			}
 //			
 //
 //
@@ -253,14 +249,13 @@
 //
 //		}catch (Exception e) {
 //
-//			logger.error(e);
 //			updatelastfailedlogin(user.getUserid(),remoteAddr);
 //		}finally {
 //			try {
 //				if(stmt3!=null)
 //					stmt3.close();
 //			} catch (SQLException e) {
-//				logger.error(e);
+////				logger.error(e);
 //			}
 //			try {
 //				if(stmt2!=null)

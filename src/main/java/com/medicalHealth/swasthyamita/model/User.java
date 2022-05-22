@@ -9,6 +9,8 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
+import org.springframework.web.multipart.MultipartFile;
+
 @Entity(name = "user")
 @Table(name = "user")
 public class User {
@@ -31,9 +33,10 @@ public class User {
 	private boolean tobacco;
 	private String otherBadHabits;
 	private String chronicDiseases;
-	private String previousPrescriptions;
-	private String previousPIreports;
-	private String idProof;
+	private MultipartFile  previousPrescriptions;
+	private MultipartFile  previousPIreports;
+	private String idNumber;
+	private MultipartFile  idProof;
 
 	
 	public User() {
@@ -43,7 +46,7 @@ public class User {
 	public User(long id, String mobile, String districtid, String email, String user_type, String dob, String gender,
 			String name, String password, String pin, String address, String bloodgroup, String bodyweight,
 			boolean smoking, boolean alcohol, boolean tobacco, String otherBadHabits, String chronicDiseases,
-			String previousPrescriptions, String previousPIreports, String idProof) {
+			MultipartFile previousPrescriptions, MultipartFile previousPIreports, String idNumber, MultipartFile idProof) {
 		super();
 		this.id = id;
 		this.mobile = mobile;
@@ -65,6 +68,7 @@ public class User {
 		this.chronicDiseases = chronicDiseases;
 		this.previousPrescriptions = previousPrescriptions;
 		this.previousPIreports = previousPIreports;
+		this.idNumber = idNumber;
 		this.idProof = idProof;
 	}
 
@@ -223,29 +227,40 @@ public class User {
 	}
 
 	@Column(name = "previousPrescriptions", nullable = false)
-	public String getPreviousPrescriptions() {
+	public MultipartFile getPreviousPrescriptions() {
 		return previousPrescriptions;
 	}
 
-	public void setPreviousPrescriptions(String previousPrescriptions) {
+	public void setPreviousPrescriptions(MultipartFile previousPrescriptions) {
 		this.previousPrescriptions = previousPrescriptions;
 	}
 
 	@Column(name = "previousPIreports", nullable = false)
-	public String getPreviousPIreports() {
+	public MultipartFile getPreviousPIreports() {
 		return previousPIreports;
 	}
 
-	public void setPreviousPIreports(String previousPIreports) {
+	public void setPreviousPIreports(MultipartFile previousPIreports) {
 		this.previousPIreports = previousPIreports;
 	}
+	
+	
+	@Column(name = "idNumber", nullable = false)
+	public String getIdNumber() {
+		return idNumber;
+	}
+
+	public void setIdNumber(String idNumber) {
+		this.idNumber = idNumber;
+	}
+
 
 	@Column(name = "idProof", nullable = false)
-	public String getIdProof() {
+	public MultipartFile getIdProof() {
 		return idProof;
 	}
 
-	public void setIdProof(String idProof) {
+	public void setIdProof(MultipartFile idProof) {
 		this.idProof = idProof;
 	}
 
@@ -258,7 +273,7 @@ public class User {
 				+ bodyweight + ", smoking=" + smoking + ", alcohol=" + alcohol + ", tobacco=" + tobacco
 				+ ", otherBadHabits=" + otherBadHabits + ", chronicDiseases=" + chronicDiseases
 				+ ", previousPrescriptions=" + previousPrescriptions + ", previousPIreports=" + previousPIreports
-				+ ", idProof=" + idProof + "]";
+				+ ", idNumber= " + idNumber + ", idProof=" + idProof + "]";
 	}
 
 }
